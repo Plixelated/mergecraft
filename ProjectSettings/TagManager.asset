@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - cauldron
+  - inventory_slot
+  - inventory_item
   layers:
   - Default
   - TransparentFX
