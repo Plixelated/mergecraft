@@ -4,36 +4,49 @@ using UnityEngine;
 
 public class UIManager : MonoBehaviour
 {
-    //Game Objects
-    [SerializeField] private GameObject potionButton;
-    [SerializeField] private GameObject shopButton;
     //Menus
     [SerializeField] private GameObject potionMenu;
     [SerializeField] private GameObject shopMenu;
+    private bool menuOpen;
     private void OnEnable()
     {
-        InputMonitor._clickedObject += PotionMenu;
+        InputMonitor._clickedObject += ShowMenu;
     }
     private void OnDisable()
     {
-        InputMonitor._clickedObject -= PotionMenu;
+        InputMonitor._clickedObject -= ShowMenu;
     }
 
-    private void PotionMenu(GameObject obj)
+    private void ShowMenu(GameObject obj)
     {
-        if (obj == potionButton)
-            potionMenu.SetActive(true);
+        if (!menuOpen)
+        {
+            if (obj.tag == "craft")
+                potionMenu.SetActive(true);
+            else if (obj.tag == "shop")
+                shopMenu.SetActive(true);
 
-        if (obj == shopButton)
-            shopMenu.SetActive(true);
+            menuOpen = true;
+        }
     }
 
     public void closePotionMenu()
     {
-        Debug.Log("CLOSED FOR BUSINESS");
         if(potionMenu.activeSelf)
         {
             potionMenu.SetActive(false);
         }
+
+        menuOpen = false;
+    }
+
+    public void closeShopMenu()
+    {
+        if (shopMenu.activeSelf)
+        {
+            shopMenu.SetActive(false);
+        }
+
+        menuOpen= false;
     }
 }

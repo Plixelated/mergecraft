@@ -4,14 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - cauldron
   - inventory_slot
   - inventory_item
+  - shop
+  - craft
+  - shop_item
   layers:
   - Default
   - TransparentFX
   - Ignore Raycast
-  - 
+  - In Game Objects
   - Water
   - UI
   - 

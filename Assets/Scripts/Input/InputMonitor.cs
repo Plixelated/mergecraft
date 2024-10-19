@@ -40,8 +40,12 @@ public class InputMonitor : MonoBehaviour
         Vector2 ray = Camera.main.ScreenToWorldPoint(mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray, Vector2.zero);
 
+
         if (hit)
+        {
+            print(hit.collider.tag);
             _clickedObject(hit.collider.gameObject);
+        }
 
     }
 }
