@@ -5,7 +5,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class ShopDisplay : MonoBehaviour
+public class ItemDisplay : MonoBehaviour
 {
     public TextMeshProUGUI itemTitle;
     public TextMeshProUGUI itemDescription;
@@ -18,7 +18,7 @@ public class ShopDisplay : MonoBehaviour
         itemIndex = index;
         itemTitle.text = title;
         //itemDescription.text = desc;
-        itemPrice.text = price;
+        //itemPrice.text = price;
         itemImage.sprite = img;
     }
 }

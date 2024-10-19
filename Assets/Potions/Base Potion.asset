@@ -19,3 +19,4 @@ MonoBehaviour:
   low: 1
   medium: 0
   high: 0
+  upgradePotion: {fileID: 11400000, guid: 88a5bb6e21c9b104ba39d8ef11378cec, type: 2}

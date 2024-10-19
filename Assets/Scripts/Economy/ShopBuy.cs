@@ -5,19 +5,19 @@ using UnityEngine;
 
 public class ShopBuy : MonoBehaviour
 {
-    public static Action<int> itemIndex;
+    public static Action<int> _itemIndex;
 
-    private ShopDisplay itemInfo;
+    private ItemDisplay itemInfo;
 
     private void Start()
     {
-        itemInfo = GetComponent<ShopDisplay>();
+        itemInfo = GetComponent<ItemDisplay>();
     }
     public void Buy()
     {
-        if (itemIndex != null)
+        if (_itemIndex != null)
         {
-            itemIndex(itemInfo.itemIndex);
+            _itemIndex(itemInfo.itemIndex);
         }
         this.gameObject.SetActive(false);
     }

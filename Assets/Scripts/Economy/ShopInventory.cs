@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Linq;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -11,26 +12,21 @@ public class ShopInventory : MonoBehaviour
     public int inventoryCount;
     public List<int> purchasedItems = new List<int>();
 
-    public static Action<float> buyItem;
+    public static Action<float> _buyItem;
+    public static Action<ScriptableObject> _purchasedItem;
 
     private void OnEnable()
     {
-        ShopBuy.itemIndex += GetItemIndex;
-        PopulateInventory();
+        ShopBuy._itemIndex += GetItemIndex;
+        UIManager._shopMenuOpen += PopulateInventory;
+        UIManager._shopMenuClose += ClearInventory;
     }
 
     private void OnDisable()
     {
-        ShopBuy.itemIndex -= GetItemIndex;
-
-        for(int i = 0; i < itemDisplay.childCount; i++)
-        {
-            GameObject child = itemDisplay.GetChild(i).gameObject;
-            Destroy(child);
-        }
-
-        UpdateInventory();
-        purchasedItems.Clear();
+        ShopBuy._itemIndex -= GetItemIndex;
+        UIManager._shopMenuOpen -= PopulateInventory;
+        UIManager._shopMenuClose -= ClearInventory;
     }
     private void PopulateInventory()
     {
@@ -41,19 +37,32 @@ public class ShopInventory : MonoBehaviour
                 inventoryCount += 1;
                 GameObject newItem = (GameObject)Instantiate(shopObject, itemDisplay);
                 Potion newPotion = (Potion)shopInventory[i];
-                newItem.GetComponent<ShopDisplay>().DisplayInfo(i,newPotion.potionName, newPotion.description, newPotion.value.ToString(), newPotion.icon);
+                newItem.GetComponent<ItemDisplay>().DisplayInfo(i,newPotion.potionName, newPotion.description, newPotion.value.ToString(), newPotion.icon);
             }
         }
     }
 
+    private void ClearInventory()
+    {
+        for (int i = 0; i < itemDisplay.childCount; i++)
+        {
+            GameObject child = itemDisplay.GetChild(i).gameObject;
+            Destroy(child);
+        }
+
+        UpdateInventory();
+        purchasedItems.Clear();
+    }
+
     private void UpdateInventory()
     {
-        for( int i = 0; i < purchasedItems.Count; i++)
+        var sortedItems = purchasedItems.OrderBy(n => n).ToList();
+        for( int i = 0; i <sortedItems.Count; i++)
         {
-            shopInventory.RemoveAt(purchasedItems[i]);
-            for(int j = 0; j < purchasedItems.Count; j++)
+            shopInventory.RemoveAt(sortedItems[i]);
+            for(int j = 0; j < sortedItems.Count; j++)
             {
-                purchasedItems[j] -= 1;
+                sortedItems[j] -= 1;
             }
             
         }
@@ -68,11 +77,15 @@ public class ShopInventory : MonoBehaviour
             item = (Potion)shopInventory[index];
         }
         Debug.Log(item.value);
-        //Add SO for Item here in else statement
-        if(buyItem != null)
-            buyItem(item.value);
+        //Add SO for Ingredient here in else statement
+
+        if(_buyItem != null)
+            _buyItem(item.value);
 
         purchasedItems.Add(index);
+
+        if(_purchasedItem != null)
+            _purchasedItem(shopInventory[index]);
 
         inventoryCount -= 1;
     }

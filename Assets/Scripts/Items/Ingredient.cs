@@ -1,12 +1,13 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-[CreateAssetMenu(fileName ="New Potion",menuName ="Potion")]
-public class Potion : ScriptableObject
+
+public class Ingredient : ScriptableObject
 {
-    public string potionName;
+    public string ingredientName;
     public string description;
     public float value;
     public Sprite icon;
 
+    public Potion upgradeingredient;
 }

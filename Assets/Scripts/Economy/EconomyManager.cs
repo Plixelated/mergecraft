@@ -15,12 +15,12 @@ public class EconomyManager : MonoBehaviour
 
     private void OnEnable()
     {
-        ShopInventory.buyItem += Buy;
+        ShopInventory._buyItem += Buy;
     }
 
     private void OnDisable()
     {
-        ShopInventory.buyItem -= Buy;
+        ShopInventory._buyItem -= Buy;
     }
 
     private void Start()
