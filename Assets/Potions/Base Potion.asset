@@ -16,7 +16,11 @@ MonoBehaviour:
   description: A standard Potion
   value: 1
   icon: {fileID: 21300000, guid: 50be5e697d2dcb0449b7f0d8d708670d, type: 3}
-  low: 1
-  medium: 0
-  high: 0
-  upgradePotion: {fileID: 11400000, guid: 88a5bb6e21c9b104ba39d8ef11378cec, type: 2}
+  mergeTable:
+    recipes:
+    - validMerge:
+      - {fileID: 11400000}
+      output: {fileID: 11400000, guid: 88a5bb6e21c9b104ba39d8ef11378cec, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 88a5bb6e21c9b104ba39d8ef11378cec, type: 2}
+      output: {fileID: 11400000, guid: 2167414affeac07448eaa235c1bb560a, type: 2}

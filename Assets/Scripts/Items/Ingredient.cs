@@ -9,5 +9,5 @@ public class Ingredient : ScriptableObject
     public float value;
     public Sprite icon;
 
-    public Potion upgradeingredient;
+    public MergeTable mergeTable = new MergeTable();
 }

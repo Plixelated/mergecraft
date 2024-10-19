@@ -10,19 +10,32 @@ public class MergeItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private Vector2 mousePOS;
     //private Transform currentParent;
     [SerializeField] private GameObject mergeObject;
-    private Vector2 startPOS;
+    public Vector2 startPOS;
     public List<RaycastResult> hitObjects = new List<RaycastResult>();
+    public int index;
+    private Transform parent;
 
     public static Action<int,int> _merge;
 
     private void OnEnable()
     {
         InputMonitor._mousePosition += GetMousePosition;
+        PlayerInventory._invalidMerge += ReturnPosition;
+        PlayerInventory._validMerge += Merge;
     }
 
     private void OnDisable()
     {
         InputMonitor._mousePosition -= GetMousePosition;
+        PlayerInventory._invalidMerge -= ReturnPosition;
+        PlayerInventory._validMerge -= Merge;
+    }
+
+    private void Start()
+    {
+        parent = this.gameObject.transform.parent;
+        index = parent.GetComponent<ItemDisplay>().itemIndex;
+
     }
 
     private void GetMousePosition(Vector2 mousePosition)
@@ -32,6 +45,8 @@ public class MergeItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnBeginDrag(PointerEventData eventData)
     {
         startPOS = this.transform.position;
+        if (index != parent.GetComponent<ItemDisplay>().itemIndex)
+            index = index = parent.GetComponent<ItemDisplay>().itemIndex;
         //currentParent = transform.parent;
         //transform.SetParent(currentParent);
     }
@@ -44,16 +59,13 @@ public class MergeItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public void OnEndDrag(PointerEventData eventData)
     {
         mergeObject = GetMergeObject();
-        var mergeParent = mergeObject.transform.parent;
+        
         if (mergeObject != null)
         {
-            var parent = this.gameObject.transform.parent;
-            parent.GetComponent<ItemDisplay>().itemTitle.text = "";
+            int targetIndex = mergeObject.transform.parent.GetComponent<ItemDisplay>().itemIndex;
 
             if (_merge != null)
-                _merge(parent.GetComponent<ItemDisplay>().itemIndex,mergeParent.GetComponent<ItemDisplay>().itemIndex);
-
-            parent.gameObject.SetActive(false);
+                _merge(index,targetIndex);
 
         }
         else
@@ -81,16 +93,21 @@ public class MergeItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         return null;
     }
 
-    /**private void Merge()
+    private void ReturnPosition(int i)
     {
-        var currentPotion = this.gameObject.GetComponent<ItemDisplay>().potion;
-        var mergePotion = mergeObject.gameObject.GetComponent<ItemDisplay>().potion;
-        var newPotion = this.gameObject.GetComponent<ItemDisplay>().upgradePotion;
-
-        Debug.Log($"Merging {currentPotion} with {mergePotion}");
-        if (currentPotion.name == "Base Potion" && mergePotion.name == "Base Potion")
+        if(i == index)
         {
-            mergeObject.GetComponent<ItemDisplay>().DisplayPotion(newPotion);
+            this.transform.position = startPOS;
         }
-    }**/
+    }
+
+    private void Merge(int i)
+    {
+        if (i == index)
+        {
+            parent.GetComponent<ItemDisplay>().itemTitle.text = "";
+            parent.GetComponent<ItemDisplay>().itemIndex = -1;
+        }
+    }
+
 }

@@ -10,14 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 243305e7e9e7fe14a8e7c62e2e11f574, type: 3}
-  m_Name: Fancy Potion
+  m_Name: Extra Fancy Potion
   m_EditorClassIdentifier: 
-  potionName: Fancy Potion
-  description: A fancy potion
-  value: 2
-  icon: {fileID: 21300000, guid: 556ed2eed8b6390488c2a17bbaa2852c, type: 3}
+  potionName: Extra Fancy Potion
+  description: 
+  value: 10
+  icon: {fileID: 21300000, guid: 25ba424d7cdaf244c874532cfcb7e2b4, type: 3}
   mergeTable:
-    recipes:
-    - validMerge:
-      - {fileID: 11400000, guid: 9d5b6e875ed75ef4faafa3b45738a5d1, type: 2}
-      output: {fileID: 11400000, guid: 2167414affeac07448eaa235c1bb560a, type: 2}
+    recipes: []
