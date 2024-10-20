@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9aa070b67ef8b304d8e93e89224fd45c, type: 3}
   m_Name: Divulging_Radiance
   m_EditorClassIdentifier: 
-  ingredientName: Divulging_Radiance
+  ingredientName: Divulging Radiance
   description: No spoilers
   value: 200
   icon: {fileID: 21300000, guid: 6957d0c033782e5469974ec17e902ffc, type: 3}
