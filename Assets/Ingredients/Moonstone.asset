@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa070b67ef8b304d8e93e89224fd45c, type: 3}
+  m_Name: Moonstone
+  m_EditorClassIdentifier: 
+  ingredientName: Moonstone
+  description: I love cheese
+  value: 5
+  icon: {fileID: 21300000, guid: 1f28f3ef0049eac4daa0c84e80eb0f6f, type: 3}
+  mergeTable:
+    recipes:
+    - validMerge:
+      - {fileID: 11400000, guid: 734086125dfed7948b6f78070d92af6e, type: 2}
+      output: {fileID: 11400000, guid: 37f1ce8b9eaad284f8a1b6f8d3b6c737, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 84be62180f93ed24f902285b83d090bb, type: 2}
+      output: {fileID: 11400000, guid: ad9556fd5fc4e694db291e1a8007ffbc, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 76ab39d714c37684c96659cec2779e2d, type: 2}
+      output: {fileID: 11400000, guid: 29b5d99906a272749a8420870c1b9ceb, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: a480915814a2d18469d48428232025b5, type: 2}
+      output: {fileID: 11400000, guid: e7f2bfa41d73aed40b2a9fe8e20f173a, type: 2}

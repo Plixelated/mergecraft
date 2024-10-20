@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa070b67ef8b304d8e93e89224fd45c, type: 3}
+  m_Name: Illustrious_Core
+  m_EditorClassIdentifier: 
+  ingredientName: Illustrious Core
+  description: Shiny
+  value: 200
+  icon: {fileID: 21300000, guid: 87bfd19be7230604ba2629444587487b, type: 3}
+  mergeTable:
+    recipes:
+    - validMerge:
+      - {fileID: 11400000, guid: e17ed48d1865e17418a1858280a425ed, type: 2}
+      output: {fileID: 11400000, guid: 7acd684b21cb73a49965cae38e360d9f, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 59d3d471864101e4ca2a9b37af4659aa, type: 2}
+      output: {fileID: 11400000, guid: ad9664cce0f91d948b606275b095b2dc, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 0983208f274d9dc408a8f9032fd2643c, type: 2}
+      output: {fileID: 11400000, guid: df7dd22b199a7034a98b183036ba71bb, type: 2}

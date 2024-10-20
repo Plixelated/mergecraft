@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa070b67ef8b304d8e93e89224fd45c, type: 3}
+  m_Name: Tear_of_Soldier
+  m_EditorClassIdentifier: 
+  ingredientName: Tear of Soldier
+  description: 'Kaladin fr '
+  value: 5
+  icon: {fileID: 21300000, guid: b1f013f1c19d9b643a929b42fffbb148, type: 3}
+  mergeTable:
+    recipes:
+    - validMerge:
+      - {fileID: 11400000, guid: edb86cf1ece5e5e4d90ea5f611568068, type: 2}
+      output: {fileID: 11400000, guid: f034acab5a011ba4d93128ba0806d293, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 36332f66f9eae5d48b04a4e4e8a0a460, type: 2}
+      output: {fileID: 11400000, guid: 87bd0f4358339e34aa57bcafc6c2b447, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: b2bfa1d0fb6ffe6489a7ba094d0dc2df, type: 2}
+      output: {fileID: 11400000, guid: ef8e88b3d4f4b2c4d84955483f59b6b4, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 8dd041789c2ebaa4fbccc81324de254c, type: 2}
+      output: {fileID: 11400000, guid: 7acd684b21cb73a49965cae38e360d9f, type: 2}

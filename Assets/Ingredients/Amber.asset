@@ -1,0 +1,32 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa070b67ef8b304d8e93e89224fd45c, type: 3}
+  m_Name: Amber
+  m_EditorClassIdentifier: 
+  ingredientName: Amber
+  description: Why do they keep alerting her?
+  value: 5
+  icon: {fileID: 21300000, guid: b2823796e71efcd478825702a44e270d, type: 3}
+  mergeTable:
+    recipes:
+    - validMerge:
+      - {fileID: 11400000, guid: 7f0a7847487a8c041999ace0626eef77, type: 2}
+      output: {fileID: 11400000, guid: 093f40b70404dbb42b6acefb10bf6b0c, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 84be62180f93ed24f902285b83d090bb, type: 2}
+      output: {fileID: 11400000, guid: 9147f0f692572bd4f83ab670abbc929c, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: a23da7e3b9edac4409dd25ebe3af1231, type: 2}
+      output: {fileID: 11400000, guid: 29b5d99906a272749a8420870c1b9ceb, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: a480915814a2d18469d48428232025b5, type: 2}
+      output: {fileID: 11400000, guid: a9d8b57add7ddbb45a6bde53a617a64f, type: 2}
