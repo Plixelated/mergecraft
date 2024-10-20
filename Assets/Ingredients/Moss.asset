@@ -9,12 +9,12 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 243305e7e9e7fe14a8e7c62e2e11f574, type: 3}
-  m_Name: Potion_of_opium
+  m_Script: {fileID: 11500000, guid: 9aa070b67ef8b304d8e93e89224fd45c, type: 3}
+  m_Name: Moss
   m_EditorClassIdentifier: 
-  potionName: Tea
-  description: it's opium that's it just opium
-  value: 20
+  ingredientName: 
+  description: 
+  value: 0
   icon: {fileID: 0}
   mergeTable:
     recipes: []
