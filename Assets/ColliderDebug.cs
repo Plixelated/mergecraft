@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ColliderDebug : MonoBehaviour
 {
-    private void OnDrawGizmosSelected()
+    private void OnDrawGizmos()
     {
         float radius = GetComponent<CircleCollider2D>().radius;
 
