@@ -15,7 +15,7 @@ MonoBehaviour:
   ingredientName: Enigmatic Prism
   description: I'm in prism
   value: 200
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 1f24989ade1326646aaf8ed4d27549c8, type: 3}
   mergeTable:
     recipes:
     - validMerge:

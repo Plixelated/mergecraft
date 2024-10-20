@@ -15,7 +15,7 @@ MonoBehaviour:
   ingredientName: Divulging_Radiance
   description: No spoilers
   value: 200
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 6957d0c033782e5469974ec17e902ffc, type: 3}
   mergeTable:
     recipes:
     - validMerge:
