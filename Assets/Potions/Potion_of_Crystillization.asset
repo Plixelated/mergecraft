@@ -15,6 +15,7 @@ MonoBehaviour:
   potionName: Potion of Crystalization
   description: (meth)
   value: 200
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: cf7e6a78e6873b64f9c6df15c09bf2a8, type: 3}
+  iconFill: {fileID: 21300000, guid: fbbbc9231a2966845acfc7da390db589, type: 3}
   mergeTable:
     recipes: []

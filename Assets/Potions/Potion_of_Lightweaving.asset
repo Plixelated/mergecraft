@@ -15,7 +15,8 @@ MonoBehaviour:
   potionName: Potion of lightweaving
   description: I'm starting to see people
   value: 500
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: bff131bdaca02ca40a0b8222bd8ed10f, type: 3}
+  iconFill: {fileID: 21300000, guid: 0710e090568ee354b9c0e60b2e0bc370, type: 3}
   mergeTable:
     recipes:
     - validMerge:

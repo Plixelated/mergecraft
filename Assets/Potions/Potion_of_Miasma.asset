@@ -15,6 +15,7 @@ MonoBehaviour:
   potionName: Potion of Miasma
   description: This sickness is spreading
   value: 20
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: ea01dc4be266b6a4e988802a4c165e47, type: 3}
+  iconFill: {fileID: 21300000, guid: e7d05a1e674859a4490b7a445d389cc7, type: 3}
   mergeTable:
     recipes: []

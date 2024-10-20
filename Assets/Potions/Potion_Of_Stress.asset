@@ -12,10 +12,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243305e7e9e7fe14a8e7c62e2e11f574, type: 3}
   m_Name: Potion_Of_Stress
   m_EditorClassIdentifier: 
-  potionName: 
+  potionName: Potion of Stress
   description: 
-  value: 0
-  icon: {fileID: 0}
-  iconFill: {fileID: 0}
+  value: 40
+  icon: {fileID: 21300000, guid: cf59aaeb8e1f49b47921c6f299b1dfc0, type: 3}
+  iconFill: {fileID: 21300000, guid: 906655c404047a34db371e82ee1a9a02, type: 3}
   mergeTable:
     recipes: []

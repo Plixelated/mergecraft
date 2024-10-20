@@ -29,7 +29,7 @@ MonoBehaviour:
       output: {fileID: 11400000, guid: 76ab39d714c37684c96659cec2779e2d, type: 2}
     - validMerge:
       - {fileID: 11400000}
-      output: {fileID: 11400000, guid: ae3175ea7aedb614dbe9a6ffd1f879be, type: 2}
+      output: {fileID: 11400000, guid: 59d3d471864101e4ca2a9b37af4659aa, type: 2}
     - validMerge:
       - {fileID: 11400000, guid: edb86cf1ece5e5e4d90ea5f611568068, type: 2}
       output: {fileID: 11400000, guid: 6b89379f7321f054389ddd7f18acf3b7, type: 2}

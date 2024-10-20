@@ -15,7 +15,8 @@ MonoBehaviour:
   potionName: Potion of expression
   description: Don't drag the cow to the attic
   value: 500
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: 398e69f88672e8f419c34bb69d738cee, type: 3}
+  iconFill: {fileID: 21300000, guid: 0d896c43b9b5bda498bf884dab432d17, type: 3}
   mergeTable:
     recipes:
     - validMerge:
