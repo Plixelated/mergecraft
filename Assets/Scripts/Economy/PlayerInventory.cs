@@ -16,7 +16,6 @@ public class PlayerInventory : MonoBehaviour
     public static Action<int> _validMerge;
 
     [SerializeField] private Potion finalPotion;
-    private bool gameover;
 
     public bool isOpen;
 
@@ -64,9 +63,6 @@ public class PlayerInventory : MonoBehaviour
 
     private void AddToInventory(ScriptableObject item)
     {
-        if(item == finalPotion)
-            gameover = true;
-
         playerInventory.Add(item);
 
         if(isOpen)
@@ -270,10 +266,28 @@ public class PlayerInventory : MonoBehaviour
         }
     }
 
+    private bool CheckForWin()
+    {
+        int index = 0;
+        foreach(var potion in  playerInventory)
+        {
+            if(potion == finalPotion)
+            {
+                playerInventory.RemoveAt(index);
+                return true;
+            }
+
+            index += 1;
+        }
+
+        return false;
+    }
+
     private void ClearInventory()
     {
-        if (gameover)
+        if (CheckForWin())
         {
+            Debug.Log("Game Over!");
             if (_gameOver != null)
                 _gameOver();
         }
