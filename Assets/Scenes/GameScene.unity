@@ -152,10 +152,10 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 2038478130}
   - {fileID: 605069401}
   - {fileID: 2024176124}
   - {fileID: 893616650}
+  - {fileID: 2038478130}
   - {fileID: 493634333}
   - {fileID: 427113804}
   m_Father: {fileID: 1494508928}
@@ -957,7 +957,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c0c288c3135f9b74f81a472f01a37fdd, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.35
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -1078,8 +1078,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 13.849982}
-  m_SizeDelta: {x: 0, y: -27.700037}
+  m_AnchoredPosition: {x: 0, y: 0.43000793}
+  m_SizeDelta: {x: 0, y: -54.540012}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &168584228
 MonoBehaviour:
@@ -1229,7 +1229,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1554512967}
-  foragingTimer: 30
+  foragingTimer: 20
   icon: {fileID: 1004095820}
   notificationText: {fileID: 1610925491}
   notificationDuration: 1
@@ -1770,7 +1770,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9561146caabadf34d9000a2d8d8b4c78, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerStartAmount: 400
+  playerStartAmount: 50
   playerBank: 0
   playerBankDisplay: {fileID: 628033151}
   lastBalance: 0
@@ -1792,8 +1792,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 8dd041789c2ebaa4fbccc81324de254c, type: 2}
   - {fileID: 11400000, guid: 0983208f274d9dc408a8f9032fd2643c, type: 2}
   - {fileID: 11400000, guid: f6bf398c695184943be675d813bd140d, type: 2}
+  - {fileID: 11400000, guid: 0ee8f2524dfbf9e4391d815fee302c80, type: 2}
+  - {fileID: 11400000, guid: 7f0a7847487a8c041999ace0626eef77, type: 2}
+  - {fileID: 11400000, guid: 734086125dfed7948b6f78070d92af6e, type: 2}
+  - {fileID: 11400000, guid: 9988480f18071044097858a30bd20df0, type: 2}
   shopObject: {fileID: 4276514953521370926, guid: 5d696eda3b3b45c4a9d124b375eac780, type: 3}
-  itemDisplay: {fileID: 601120802}
+  itemDisplay: {fileID: 1726658068}
   inventoryCount: 0
   purchasedItems: 
 --- !u!114 &460127705
@@ -1817,8 +1821,6 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 0ee8f2524dfbf9e4391d815fee302c80, type: 2}
   - {fileID: 11400000, guid: 7f0a7847487a8c041999ace0626eef77, type: 2}
   - {fileID: 11400000, guid: 7f0a7847487a8c041999ace0626eef77, type: 2}
-  - {fileID: 11400000, guid: 5fb14a33f7190e448ae5115200e90d2b, type: 2}
-  - {fileID: 11400000, guid: 78f6e186048f8004191013a03f6c7ba9, type: 2}
   playerItem: {fileID: 5093233024287380668, guid: 29da3f10083ecf340bd26743a0ba7c2e, type: 3}
   itemDisplay: {fileID: 1889759335}
   finalPotion: {fileID: 11400000, guid: 873b5ecc988652144826f4e483efaa8e, type: 2}
@@ -2416,8 +2418,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 14.150008}
-  m_SizeDelta: {x: 0, y: -28.299984}
+  m_AnchoredPosition: {x: 0, y: 0.7549896}
+  m_SizeDelta: {x: 0, y: -55.089973}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &605069402
 MonoBehaviour:
@@ -3472,7 +3474,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &893616650
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5498,7 +5500,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: c3638019a77fcbc41a51efd1b23007ed, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.75
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6659,7 +6661,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 04170d44c007eda4baf0edc5ff6568e4, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.25
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -6778,7 +6780,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -307, y: -0.00024414062}
-  m_SizeDelta: {x: 630.2628, y: -377.2616}
+  m_SizeDelta: {x: 630.2628, y: -350.47162}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1726658069
 MonoBehaviour:
@@ -7337,7 +7339,7 @@ RectTransform:
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 1}
   m_AnchoredPosition: {x: -307, y: -0.00024414062}
-  m_SizeDelta: {x: 630.2628, y: -354.86154}
+  m_SizeDelta: {x: 630.2628, y: -328.02158}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1889759336
 MonoBehaviour:

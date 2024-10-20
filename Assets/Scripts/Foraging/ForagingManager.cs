@@ -31,8 +31,8 @@ public class ForagingManager : MonoBehaviour
         Debug.Log("AM RUNNING");
         notifStartPos = notificationText.rectTransform.position;
         StartCoroutine(FillBar());
-        selection = UnityEngine.Random.Range(0, ingredientPool.Count - 1);
-        icon.sprite = ingredientPool[selection].icon;
+
+        GetForagedItem();
     }
 
     private void Update()
@@ -73,7 +73,13 @@ public class ForagingManager : MonoBehaviour
         slider.value = fillValue;
         finished = true;
 
-        OnFinish($"+1 {ingredientPool[selection].ingredientName}");
+        OnFinish($"+3 Items Added"); //{ingredientPool[selection].ingredientName}");
+    }
+
+    private void GetForagedItem()
+    {
+        selection = UnityEngine.Random.Range(0, ingredientPool.Count - 1);
+        icon.sprite = ingredientPool[selection].icon;
     }
 
     private void OnFinish(string notification)
@@ -81,11 +87,12 @@ public class ForagingManager : MonoBehaviour
         if(_forageSFX != null)
             _forageSFX();
 
-        selection = UnityEngine.Random.Range(0, ingredientPool.Count-1);
-        icon.sprite = ingredientPool[selection].icon;
-
-        if (_ingredient != null)
-            _ingredient(ingredientPool[selection]);
+        for (int i = 0; i < 3; i++)
+        {
+            GetForagedItem();
+            if (_ingredient != null)
+                _ingredient(ingredientPool[selection]);
+        }
 
 
         notificationText.gameObject.SetActive(true);

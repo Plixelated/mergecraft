@@ -21,6 +21,7 @@ public class PlayerInventory : MonoBehaviour
 
     public static Action _gameOver;
     public static Action<float> _sellPotion;
+    public static Action _mergeSFX;
 
     private void OnEnable()
     {
@@ -203,7 +204,11 @@ public class PlayerInventory : MonoBehaviour
                 }
 
                 if (isValid)
+                {
+                    if (_mergeSFX != null)
+                        _mergeSFX();
                     return isValid;
+                }
 
             }
         }

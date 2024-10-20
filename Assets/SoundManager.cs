@@ -10,13 +10,14 @@ public class SoundManager : MonoBehaviour
 
     private void OnEnable()
     {
-        MergeItem._mergeSFX += PlayMerge;
+        PlayerInventory._mergeSFX += PlayMerge;
         ForagingManager._forageSFX += PlayForaging;
         SellPotion._sellSFX += PlaySell;
+        ShopBuy._sellSFX += PlaySell;
     }
     private void OnDisable()
     {
-        MergeItem._mergeSFX -= PlayMerge;
+        PlayerInventory._mergeSFX -= PlayMerge;
         ForagingManager._forageSFX -= PlayForaging;
         SellPotion._sellSFX -= PlaySell;
     }
