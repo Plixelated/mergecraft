@@ -10,17 +10,17 @@ public class EconomyManager : MonoBehaviour
     [SerializeField] private float playerBank;
     [SerializeField] private TextMeshProUGUI playerBankDisplay;
 
-    [SerializeField] private float storeStartAmount;
-    [SerializeField] private float storeBank;
 
     private void OnEnable()
     {
         ShopInventory._buyItem += Buy;
+        PlayerInventory._sellPotion += Sell;
     }
 
     private void OnDisable()
     {
         ShopInventory._buyItem -= Buy;
+        PlayerInventory._sellPotion -= Sell;
     }
 
     private void Start()
@@ -28,19 +28,17 @@ public class EconomyManager : MonoBehaviour
         playerBank += playerStartAmount;
         playerBankDisplay.text = playerBank.ToString();
 
-        storeBank += storeStartAmount;
     }
     public void Buy(float value)
     {
         playerBank -= value;
         playerBankDisplay.text = playerBank.ToString();
-
-        storeBank += value;
     }
 
     public void Sell(float value)
     {
         playerBank += value;
-        storeBank -= value;
+        playerBankDisplay.text = playerBank.ToString();
     }
+
 }

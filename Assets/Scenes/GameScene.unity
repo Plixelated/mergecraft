@@ -1408,8 +1408,6 @@ MonoBehaviour:
   playerStartAmount: 25
   playerBank: 0
   playerBankDisplay: {fileID: 628033151}
-  storeStartAmount: 100
-  storeBank: 0
 --- !u!114 &460127704
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1444,6 +1442,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerInventory: []
   playerItem: {fileID: 5093233024287380668, guid: 29da3f10083ecf340bd26743a0ba7c2e, type: 3}
+  potionItem: {fileID: 5093233024287380668, guid: bfb3f5d15549001499c4d1f62d1803b4, type: 3}
   itemDisplay: {fileID: 1889759335}
   finalPotion: {fileID: 11400000, guid: 873b5ecc988652144826f4e483efaa8e, type: 2}
   isOpen: 0

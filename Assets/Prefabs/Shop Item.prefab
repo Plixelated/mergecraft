@@ -257,10 +257,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   itemTitle: {fileID: 7050814711525685252}
-  itemDescription: {fileID: 0}
   itemPrice: {fileID: 4155365888176491173}
   itemImage: {fileID: 187440228400762818}
   itemIndex: 0
+  sellButton: {fileID: 0}
 --- !u!114 &8341905257683004227
 MonoBehaviour:
   m_ObjectHideFlags: 0

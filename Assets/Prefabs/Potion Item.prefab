@@ -411,6 +411,7 @@ GameObject:
   - component: {fileID: 6718817215391152903}
   - component: {fileID: 102563351779049272}
   - component: {fileID: 3300968832270500351}
+  - component: {fileID: 5760862254395007109}
   m_Layer: 5
   m_Name: Potion Item
   m_TagString: inventory_slot
@@ -518,6 +519,18 @@ MonoBehaviour:
   itemPrice: {fileID: 0}
   itemImage: {fileID: 4839427189086521063}
   itemIndex: 0
+--- !u!114 &5760862254395007109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5093233024287380668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bd07fddb6980337458e06bfdbb621fd8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &5115970136959728710
 GameObject:
   m_ObjectHideFlags: 0

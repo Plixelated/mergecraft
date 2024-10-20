@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class PlayerInventory : MonoBehaviour
@@ -19,6 +20,7 @@ public class PlayerInventory : MonoBehaviour
     public bool isOpen;
 
     public static Action _gameOver;
+    public static Action<float> _sellPotion;
 
     private void OnEnable()
     {
@@ -27,6 +29,7 @@ public class PlayerInventory : MonoBehaviour
         UIManager._potionMenuClose += ClearInventory;
         MergeItem._merge += MergeItems;
         ForagingManager._ingredient += AddToInventory;
+        SellPotion._itemIndex += GetItemIndex;
     }
     private void OnDisable()
     {
@@ -35,6 +38,25 @@ public class PlayerInventory : MonoBehaviour
         UIManager._potionMenuClose -= ClearInventory;
         MergeItem._merge -= MergeItems;
         ForagingManager._ingredient -= AddToInventory;
+        SellPotion._itemIndex -= GetItemIndex;
+    }
+
+    private void GetItemIndex(int index)
+    {
+        Potion item = (Potion)playerInventory[index];
+
+        if (_sellPotion != null)
+            _sellPotion(item.value);
+
+        playerInventory.RemoveAt(index);
+
+        inventoryCount -= 1;
+
+        itemDisplay.GetChild(index).gameObject.SetActive(false);
+        itemDisplay.GetChild(index).SetAsLastSibling();
+
+        UpdateInventory();
+
     }
 
     private void AddToInventory(ScriptableObject item)
@@ -61,7 +83,7 @@ public class PlayerInventory : MonoBehaviour
         inventoryCount += 1;
         GameObject newItem = (GameObject)Instantiate(playerItem, itemDisplay);
         Ingredient newIngredient = (Ingredient)playerInventory[i];
-        newItem.GetComponent<ItemDisplay>().DisplayInfo(i, newIngredient.ingredientName, newIngredient.description, newIngredient.value.ToString(), newIngredient.icon);
+        newItem.GetComponent<ItemDisplay>().DisplayInfo(i, newIngredient.ingredientName, newIngredient.description, newIngredient.value.ToString(), newIngredient.icon, false);
     }
 
     private void AddPotion(int i)
@@ -69,7 +91,7 @@ public class PlayerInventory : MonoBehaviour
         inventoryCount += 1;
         GameObject newItem = (GameObject)Instantiate(playerItem, itemDisplay);
         Potion newPotion = (Potion)playerInventory[i];
-        newItem.GetComponent<ItemDisplay>().DisplayInfo(i, newPotion.potionName, newPotion.description, newPotion.value.ToString(), newPotion.icon);
+        newItem.GetComponent<ItemDisplay>().DisplayInfo(i, newPotion.potionName, newPotion.description, newPotion.value.ToString(), newPotion.icon, true);
     }
 
     private void PopulateInventory()
@@ -106,7 +128,7 @@ public class PlayerInventory : MonoBehaviour
             itemDisplay.GetChild(mergeIndex).gameObject.SetActive(false);
             itemDisplay.GetChild(mergeIndex).SetAsLastSibling();
 
-            UpdatePotion();
+            UpdateInventory();
         }
         else
         {
@@ -195,36 +217,46 @@ public class PlayerInventory : MonoBehaviour
         return isValid;
     }
 
-    private void UpdatePotion()
+    private void UpdateInventory()
     {
 
         //Potion newPotion;
         Potion currentPotion = null;
+        Ingredient currentIngredient = null;
         int activeIndex = 0;
 
-        for (int i = 0; i < itemDisplay.childCount; i++)
+        if (playerInventory.Count > 0)
         {
-            Transform child = itemDisplay.GetChild(i);
-            if (child != null && child.gameObject.activeSelf)
+
+            for (int i = 0; i < itemDisplay.childCount; i++)
             {
-                ItemDisplay itemDisplay = child.GetComponent<ItemDisplay>();
-                //Update Index
-                itemDisplay.itemIndex = activeIndex;
-                try
+                Transform child = itemDisplay.GetChild(i);
+                if (child != null && child.gameObject.activeSelf)
                 {
-                    currentPotion = (Potion)playerInventory[activeIndex];
+                    ItemDisplay items = child.GetComponent<ItemDisplay>();
+                    //Update Index
+                    items.itemIndex = activeIndex;
+                    if (playerInventory[activeIndex] is Potion)
+                    {
+
+                        currentPotion = (Potion)playerInventory[activeIndex];
+                        items.DisplayInfo(activeIndex, currentPotion.potionName, currentPotion.description, currentPotion.value.ToString(), currentPotion.icon, true);
+
+                    }
+                    else if (playerInventory[activeIndex] is Ingredient)
+                    {
+                        currentIngredient = (Ingredient)playerInventory[activeIndex];
+                        items.DisplayInfo(activeIndex, currentIngredient.ingredientName, currentIngredient.description, currentIngredient.value.ToString(), currentIngredient.icon, false);
+                    }
+
+                    activeIndex += 1;
                 }
-                catch (Exception e)
-                {
-                    Debug.Log(e);
 
-                }
-
-
-                itemDisplay.DisplayInfo(activeIndex, currentPotion.potionName, currentPotion.description, currentPotion.value.ToString(), currentPotion.icon);
-                activeIndex += 1;
             }
-
+        }
+        else
+        {
+            itemDisplay.GetChild(0).gameObject.SetActive(false);
         }
     }
 

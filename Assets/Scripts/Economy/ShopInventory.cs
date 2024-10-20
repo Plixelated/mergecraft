@@ -37,14 +37,14 @@ public class ShopInventory : MonoBehaviour
                 inventoryCount += 1;
                 GameObject newItem = (GameObject)Instantiate(shopObject, itemDisplay);
                 Potion newPotion = (Potion)shopInventory[i];
-                newItem.GetComponent<ItemDisplay>().DisplayInfo(i,newPotion.potionName, newPotion.description, newPotion.value.ToString(), newPotion.icon);
+                newItem.GetComponent<ItemDisplay>().DisplayInfo(i,newPotion.potionName, newPotion.description, newPotion.value.ToString(), newPotion.icon, true);
             }
             else if (shopInventory[i] is Ingredient)
             {
                 inventoryCount += 1;
                 GameObject newItem = (GameObject)Instantiate(shopObject, itemDisplay);
                 Ingredient newIngredient = (Ingredient)shopInventory[i];
-                newItem.GetComponent<ItemDisplay>().DisplayInfo(i, newIngredient.ingredientName, newIngredient.description, newIngredient.value.ToString(), newIngredient.icon);
+                newItem.GetComponent<ItemDisplay>().DisplayInfo(i, newIngredient.ingredientName, newIngredient.description, newIngredient.value.ToString(), newIngredient.icon, false);
             }
         }
     }
