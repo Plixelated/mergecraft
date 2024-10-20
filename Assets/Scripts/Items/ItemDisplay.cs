@@ -17,8 +17,11 @@ public class ItemDisplay : MonoBehaviour
     {
         itemIndex = index;
         itemTitle.text = title;
-        //itemDescription.text = desc;
-        //itemPrice.text = price;
         itemImage.sprite = img;
+        //Optional Values
+        if (itemDescription != null)
+            itemDescription.text = desc;
+        if (itemPrice != null)
+            itemPrice.text = price.ToString();
     }
 }

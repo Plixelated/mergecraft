@@ -44,6 +44,15 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""pause"",
+                    ""type"": ""PassThrough"",
+                    ""id"": ""53741eb0-c63c-4f52-8fbd-8b790f398f52"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": """",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -68,6 +77,17 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
                     ""action"": ""mouseClick"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""f5401a29-b127-4094-a7b6-5178c8c01418"",
+                    ""path"": ""<Keyboard>/escape"",
+                    ""interactions"": ""Press"",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""pause"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         }
@@ -78,6 +98,7 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
         m_player = asset.FindActionMap("player", throwIfNotFound: true);
         m_player_mousePosition = m_player.FindAction("mousePosition", throwIfNotFound: true);
         m_player_mouseClick = m_player.FindAction("mouseClick", throwIfNotFound: true);
+        m_player_pause = m_player.FindAction("pause", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -141,12 +162,14 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     private List<IPlayerActions> m_PlayerActionsCallbackInterfaces = new List<IPlayerActions>();
     private readonly InputAction m_player_mousePosition;
     private readonly InputAction m_player_mouseClick;
+    private readonly InputAction m_player_pause;
     public struct PlayerActions
     {
         private @InputActions m_Wrapper;
         public PlayerActions(@InputActions wrapper) { m_Wrapper = wrapper; }
         public InputAction @mousePosition => m_Wrapper.m_player_mousePosition;
         public InputAction @mouseClick => m_Wrapper.m_player_mouseClick;
+        public InputAction @pause => m_Wrapper.m_player_pause;
         public InputActionMap Get() { return m_Wrapper.m_player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -162,6 +185,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @mouseClick.started += instance.OnMouseClick;
             @mouseClick.performed += instance.OnMouseClick;
             @mouseClick.canceled += instance.OnMouseClick;
+            @pause.started += instance.OnPause;
+            @pause.performed += instance.OnPause;
+            @pause.canceled += instance.OnPause;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -172,6 +198,9 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
             @mouseClick.started -= instance.OnMouseClick;
             @mouseClick.performed -= instance.OnMouseClick;
             @mouseClick.canceled -= instance.OnMouseClick;
+            @pause.started -= instance.OnPause;
+            @pause.performed -= instance.OnPause;
+            @pause.canceled -= instance.OnPause;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -193,5 +222,6 @@ public partial class @InputActions: IInputActionCollection2, IDisposable
     {
         void OnMousePosition(InputAction.CallbackContext context);
         void OnMouseClick(InputAction.CallbackContext context);
+        void OnPause(InputAction.CallbackContext context);
     }
 }

@@ -2,7 +2,6 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEditor.Progress;
 
 public class PlayerInventory : MonoBehaviour
 {
@@ -15,12 +14,19 @@ public class PlayerInventory : MonoBehaviour
     public static Action<int> _invalidMerge;
     public static Action<int> _validMerge;
 
+    [SerializeField] private Potion finalPotion;
+
+    public bool isOpen;
+
+    public static Action _gameOver;
+
     private void OnEnable()
     {
         ShopInventory._purchasedItem += AddToInventory;
         UIManager._potionMenuOpen += PopulateInventory;
         UIManager._potionMenuClose += ClearInventory;
         MergeItem._merge += MergeItems;
+        ForagingManager._ingredient += AddToInventory;
     }
     private void OnDisable()
     {
@@ -28,23 +34,57 @@ public class PlayerInventory : MonoBehaviour
         UIManager._potionMenuOpen -= PopulateInventory;
         UIManager._potionMenuClose -= ClearInventory;
         MergeItem._merge -= MergeItems;
+        ForagingManager._ingredient -= AddToInventory;
     }
 
     private void AddToInventory(ScriptableObject item)
     {
+        if(item == finalPotion)
+        {
+            if(_gameOver != null)
+            {
+                _gameOver();
+            }
+        }
+
         playerInventory.Add(item);
+
+        if(isOpen)
+        {
+           AddIngredient(playerInventory.Count-1);
+        }
+
+    }
+
+    private void AddIngredient(int i)
+    {
+        inventoryCount += 1;
+        GameObject newItem = (GameObject)Instantiate(playerItem, itemDisplay);
+        Ingredient newIngredient = (Ingredient)playerInventory[i];
+        newItem.GetComponent<ItemDisplay>().DisplayInfo(i, newIngredient.ingredientName, newIngredient.description, newIngredient.value.ToString(), newIngredient.icon);
+    }
+
+    private void AddPotion(int i)
+    {
+        inventoryCount += 1;
+        GameObject newItem = (GameObject)Instantiate(playerItem, itemDisplay);
+        Potion newPotion = (Potion)playerInventory[i];
+        newItem.GetComponent<ItemDisplay>().DisplayInfo(i, newPotion.potionName, newPotion.description, newPotion.value.ToString(), newPotion.icon);
     }
 
     private void PopulateInventory()
     {
+        isOpen = true;
+
         for (int i = 0; i < playerInventory.Count; i++)
         {
             if (playerInventory[i] is Potion)
             {
-                inventoryCount += 1;
-                GameObject newItem = (GameObject)Instantiate(playerItem, itemDisplay);
-                Potion newPotion = (Potion)playerInventory[i];
-                newItem.GetComponent<ItemDisplay>().DisplayInfo(i, newPotion.potionName, newPotion.description, newPotion.value.ToString(), newPotion.icon);
+                AddPotion(i);
+            }
+            else if (playerInventory[i] is Ingredient)
+            {
+                AddIngredient(i);
             }
         }
     }
@@ -66,7 +106,7 @@ public class PlayerInventory : MonoBehaviour
             itemDisplay.GetChild(mergeIndex).gameObject.SetActive(false);
             itemDisplay.GetChild(mergeIndex).SetAsLastSibling();
 
-            UpdatePotion(targetIndex);
+            UpdatePotion();
         }
         else
         {
@@ -155,21 +195,12 @@ public class PlayerInventory : MonoBehaviour
         return isValid;
     }
 
-    private void UpdatePotion(int targetIndex)
+    private void UpdatePotion()
     {
 
         //Potion newPotion;
         Potion currentPotion = null;
         int activeIndex = 0;
-
-        //if (playerInventory.Count > 1)
-        //{
-        //    newPotion = (Potion)playerInventory[targetIndex];
-        //}
-        //else
-        //{
-        //    newPotion = (Potion)playerInventory[0];
-        //}
 
         for (int i = 0; i < itemDisplay.childCount; i++)
         {
@@ -199,6 +230,7 @@ public class PlayerInventory : MonoBehaviour
 
     private void ClearInventory()
     {
+        isOpen = false;
         for (int i = 0; i < itemDisplay.childCount; i++)
         {
             GameObject child = itemDisplay.GetChild(i).gameObject;

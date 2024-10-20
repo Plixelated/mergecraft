@@ -1,9 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class InputMonitor : MonoBehaviour
@@ -14,17 +12,26 @@ public class InputMonitor : MonoBehaviour
     public static Action<Vector2> _mousePosition;
     public static Action<GameObject> _clickedObject;
 
+    public static Action _pause;
+
     private void OnEnable()
     {
         inputActions.player.Enable();
+    }
+    private void OnDisable()
+    {
+        inputActions.player.Disable();
     }
     private void Awake()
     {
         inputActions = new InputActions();
 
         var mouseClick = inputActions.player.mouseClick;
+        var pause = inputActions.player.pause;
 
-        mouseClick.performed += ctx => onClick(ctx);
+        mouseClick.performed += ctx => OnClick(ctx);
+        pause.performed += ctx => OnPause(ctx);
+
     }
 
     // Update is called once per frame
@@ -35,7 +42,7 @@ public class InputMonitor : MonoBehaviour
             _mousePosition(mousePosition);
     }
 
-    private void onClick(InputAction.CallbackContext context)
+    private void OnClick(InputAction.CallbackContext context)
     {
         Vector2 ray = Camera.main.ScreenToWorldPoint(mousePosition);
         RaycastHit2D hit = Physics2D.Raycast(ray, Vector2.zero);
@@ -47,5 +54,15 @@ public class InputMonitor : MonoBehaviour
             _clickedObject(hit.collider.gameObject);
         }
 
+    }
+
+    private void OnPause(InputAction.CallbackContext context)
+    {
+        if (context.performed)
+        {
+            Debug.Log("HOLUPWAITAMINUTE");
+            if (_pause != null)
+                _pause();
+        }
     }
 }
