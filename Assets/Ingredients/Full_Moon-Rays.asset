@@ -1,0 +1,38 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa070b67ef8b304d8e93e89224fd45c, type: 3}
+  m_Name: Full_Moon-Rays
+  m_EditorClassIdentifier: 
+  ingredientName: Full Moon Rays
+  description: Sailor moon attack
+  value: 5
+  icon: {fileID: 21300000, guid: b1e0cb26528e6814eb5af3e0778dba94, type: 3}
+  mergeTable:
+    recipes:
+    - validMerge:
+      - {fileID: 11400000, guid: 7f0a7847487a8c041999ace0626eef77, type: 2}
+      output: {fileID: 11400000, guid: 8bd4b60c3865ff84dbe32b8ea59b65db, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 9988480f18071044097858a30bd20df0, type: 2}
+      output: {fileID: 11400000, guid: 6b89379f7321f054389ddd7f18acf3b7, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: ace20fc7f02208547a8d87e4a13c840b, type: 2}
+      output: {fileID: 11400000, guid: 6b89379f7321f054389ddd7f18acf3b7, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: e17ed48d1865e17418a1858280a425ed, type: 2}
+      output: {fileID: 11400000, guid: f034acab5a011ba4d93128ba0806d293, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: ae3175ea7aedb614dbe9a6ffd1f879be, type: 2}
+      output: {fileID: 11400000, guid: 6b89379f7321f054389ddd7f18acf3b7, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 0983208f274d9dc408a8f9032fd2643c, type: 2}
+      output: {fileID: 11400000, guid: 1459daaba44263840b89aa6c87cd31e9, type: 2}

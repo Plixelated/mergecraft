@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa070b67ef8b304d8e93e89224fd45c, type: 3}
+  m_Name: Werewolf_Claws
+  m_EditorClassIdentifier: 
+  ingredientName: Werewolf Claws
+  description: Idk where these wolves are
+  value: 5
+  icon: {fileID: 21300000, guid: 739dbcfab348a29448ab43fd8d15d571, type: 3}
+  mergeTable:
+    recipes:
+    - validMerge:
+      - {fileID: 11400000, guid: 7f0a7847487a8c041999ace0626eef77, type: 2}
+      output: {fileID: 11400000, guid: 807f98a9e8afa47489262d479e6c51f2, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: e17ed48d1865e17418a1858280a425ed, type: 2}
+      output: {fileID: 11400000, guid: ef8e88b3d4f4b2c4d84955483f59b6b4, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 84be62180f93ed24f902285b83d090bb, type: 2}
+      output: {fileID: 11400000, guid: fbced8b4a3bc7f54285bc2861798e198, type: 2}

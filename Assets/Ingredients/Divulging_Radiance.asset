@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa070b67ef8b304d8e93e89224fd45c, type: 3}
+  m_Name: Divulging_Radiance
+  m_EditorClassIdentifier: 
+  ingredientName: Divulging_Radiance
+  description: No spoilers
+  value: 200
+  icon: {fileID: 0}
+  mergeTable:
+    recipes:
+    - validMerge:
+      - {fileID: 11400000, guid: a23da7e3b9edac4409dd25ebe3af1231, type: 2}
+      output: {fileID: 11400000, guid: e7f2bfa41d73aed40b2a9fe8e20f173a, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 76ab39d714c37684c96659cec2779e2d, type: 2}
+      output: {fileID: 11400000, guid: a9d8b57add7ddbb45a6bde53a617a64f, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: aa9016e84c956bd40806bad3943e94f8, type: 2}
+      output: {fileID: 11400000, guid: bd1f9a813c4045741aac1c7bda2ae6ab, type: 2}

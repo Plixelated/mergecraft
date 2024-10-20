@@ -10,11 +10,11 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 243305e7e9e7fe14a8e7c62e2e11f574, type: 3}
-  m_Name: True Form
+  m_Name: Potion_of_Luminostity
   m_EditorClassIdentifier: 
-  potionName: True Form
-  description: You can be yourself!
-  value: 0
-  icon: {fileID: 21300000, guid: 12aefdea4c82f3846aece98e42bfdbac, type: 3}
+  potionName: Potion of Luminosity
+  description: I'm not that bright so I need this one
+  value: 300
+  icon: {fileID: 0}
   mergeTable:
     recipes: []

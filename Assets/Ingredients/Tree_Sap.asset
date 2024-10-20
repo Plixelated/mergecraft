@@ -1,0 +1,41 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa070b67ef8b304d8e93e89224fd45c, type: 3}
+  m_Name: Tree_Sap
+  m_EditorClassIdentifier: 
+  ingredientName: Tree Sap
+  description: This one is kinda sappy
+  value: 2
+  icon: {fileID: 21300000, guid: d94fbe57c8f16d44eb95131c55a3e0d1, type: 3}
+  mergeTable:
+    recipes:
+    - validMerge:
+      - {fileID: 11400000, guid: 0ee8f2524dfbf9e4391d815fee302c80, type: 2}
+      output: {fileID: 11400000, guid: e17ed48d1865e17418a1858280a425ed, type: 2}
+    - validMerge:
+      - {fileID: 11400000}
+      output: {fileID: 11400000, guid: ace20fc7f02208547a8d87e4a13c840b, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 734086125dfed7948b6f78070d92af6e, type: 2}
+      output: {fileID: 11400000, guid: 84be62180f93ed24f902285b83d090bb, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 9988480f18071044097858a30bd20df0, type: 2}
+      output: {fileID: 11400000, guid: 76ab39d714c37684c96659cec2779e2d, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: edb86cf1ece5e5e4d90ea5f611568068, type: 2}
+      output: {fileID: 11400000, guid: 8bd4b60c3865ff84dbe32b8ea59b65db, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: b2bfa1d0fb6ffe6489a7ba094d0dc2df, type: 2}
+      output: {fileID: 11400000, guid: 807f98a9e8afa47489262d479e6c51f2, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: 76ab39d714c37684c96659cec2779e2d, type: 2}
+      output: {fileID: 11400000, guid: 093f40b70404dbb42b6acefb10bf6b0c, type: 2}

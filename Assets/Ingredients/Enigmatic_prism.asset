@@ -1,0 +1,29 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 9aa070b67ef8b304d8e93e89224fd45c, type: 3}
+  m_Name: Enigmatic_prism
+  m_EditorClassIdentifier: 
+  ingredientName: Enigmatic Prism
+  description: I'm in prism
+  value: 200
+  icon: {fileID: 0}
+  mergeTable:
+    recipes:
+    - validMerge:
+      - {fileID: 11400000, guid: 36332f66f9eae5d48b04a4e4e8a0a460, type: 2}
+      output: {fileID: 11400000, guid: 9888411c71cf64348977471cb7693ddc, type: 2}
+    - validMerge:
+      - {fileID: 11400000, guid: ace20fc7f02208547a8d87e4a13c840b, type: 2}
+      output: {fileID: 11400000}
+    - validMerge:
+      - {fileID: 11400000, guid: a480915814a2d18469d48428232025b5, type: 2}
+      output: {fileID: 11400000, guid: bd1f9a813c4045741aac1c7bda2ae6ab, type: 2}
