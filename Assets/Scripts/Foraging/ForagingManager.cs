@@ -23,7 +23,7 @@ public class ForagingManager : MonoBehaviour
     private int selection;
 
     public static Action<Ingredient> _ingredient;
-
+    public static Action _forageSFX;
 
     private void Start()
     {
@@ -75,6 +75,9 @@ public class ForagingManager : MonoBehaviour
 
     private void OnFinish(string notification)
     {
+        if(_forageSFX != null)
+            _forageSFX();
+
         selection = UnityEngine.Random.Range(0, ingredientPool.Count-1);
         if (_ingredient != null)
             _ingredient(ingredientPool[selection]);

@@ -16,6 +16,7 @@ public class MergeItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     private Transform parent;
 
     public static Action<int,int> _merge;
+    public static Action _mergeSFX;
 
     private void OnEnable()
     {
@@ -62,6 +63,9 @@ public class MergeItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         
         if (mergeObject != null)
         {
+            if (_mergeSFX != null)
+                _mergeSFX();
+
             int targetIndex = mergeObject.transform.parent.GetComponent<ItemDisplay>().itemIndex;
 
             if (_merge != null)
