@@ -9,6 +9,7 @@ TagManager:
   - shop
   - craft
   - shop_item
+  - brew_slot
   layers:
   - Default
   - TransparentFX

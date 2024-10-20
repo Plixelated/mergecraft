@@ -5,7 +5,7 @@ using UnityEngine;
 [System.Serializable]
 public class Merges
 {
-    public List<Potion> validMerge;
+    public List<ScriptableObject> validMerge;
     public Potion output;
 }
 [System.Serializable]

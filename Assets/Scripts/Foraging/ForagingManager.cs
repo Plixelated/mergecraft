@@ -16,7 +16,6 @@ public class ForagingManager : MonoBehaviour
     private bool notificationOn;
     [SerializeField] private TextMeshProUGUI notificationText;
     [SerializeField] private float notificationDuration = 1.0f;
-    [SerializeField] private float notificationYOffset = 16.0f;
     private Vector2 notifStartPos;
     private float timer;
 
