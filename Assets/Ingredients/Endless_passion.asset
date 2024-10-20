@@ -15,7 +15,7 @@ MonoBehaviour:
   ingredientName: Endless Passion
   description: 
   value: 200
-  icon: {fileID: 0}
+  icon: {fileID: 21300000, guid: fe3ffbc6a675c9747b04593479e68c8f, type: 3}
   mergeTable:
     recipes:
     - validMerge:
