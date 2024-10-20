@@ -9,6 +9,7 @@ public class Potion : ScriptableObject
     public string description;
     public float value;
     public Sprite icon;
+    public Sprite iconFill;
 
     public MergeTable mergeTable = new MergeTable();
 
