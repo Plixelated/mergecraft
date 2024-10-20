@@ -13,7 +13,7 @@ public class GameManager : MonoBehaviour
 
     private void OnEnable()
     {
-        PlayerInventory._gameOver += EndGame;
+        PlayerAnimator._endgame += EndGame;
         InputMonitor._pause += PauseGame;
         PauseMenu._resume += Resume;
         PauseMenu._exit += ExitGame;
@@ -23,7 +23,7 @@ public class GameManager : MonoBehaviour
 
     private void OnDisable()
     {
-        PlayerInventory._gameOver -= EndGame;
+        PlayerAnimator._endgame -= EndGame;
         InputMonitor._pause -= PauseGame;
         PauseMenu._resume -= Resume;
         PauseMenu._exit -= ExitGame;
@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
 
     private void EndGame()
     {
-        Debug.Log("Game Over Man");
+        gameOverMenu.SetActive(true);
     }
 
     private void PauseGame()
@@ -63,6 +63,7 @@ public class GameManager : MonoBehaviour
         pauseMenuOpen = false;
         Time.timeScale = 1f;
         pauseMenu.SetActive(false);
+        gameOverMenu.SetActive(false);
     }
 
     private void ExitGame()
