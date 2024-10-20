@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243305e7e9e7fe14a8e7c62e2e11f574, type: 3}
   m_Name: Potion_of_Lightweaving
   m_EditorClassIdentifier: 
-  potionName: Potion of lightweaving
+  potionName: Potion of Lightweaving
   description: I'm starting to see people
   value: 500
   icon: {fileID: 21300000, guid: bff131bdaca02ca40a0b8222bd8ed10f, type: 3}

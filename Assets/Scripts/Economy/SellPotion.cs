@@ -7,8 +7,8 @@ public class SellPotion : MonoBehaviour
 {
     public static Action<int> _itemIndex;
     public static Action _sellSFX;
-
     private ItemDisplay itemInfo;
+
     private void Start()
     {
         itemInfo = GetComponent<ItemDisplay>();
