@@ -9,6 +9,7 @@ public class ForagingManager : MonoBehaviour
 {
     [SerializeField] private Slider slider;
     [SerializeField] private float foragingTimer;
+    public Image icon;
 
     private float fillValue = 1.0f;
     private bool finished = false;
@@ -30,6 +31,8 @@ public class ForagingManager : MonoBehaviour
         Debug.Log("AM RUNNING");
         notifStartPos = notificationText.rectTransform.position;
         StartCoroutine(FillBar());
+        selection = UnityEngine.Random.Range(0, ingredientPool.Count - 1);
+        icon.sprite = ingredientPool[selection].icon;
     }
 
     private void Update()
@@ -79,6 +82,8 @@ public class ForagingManager : MonoBehaviour
             _forageSFX();
 
         selection = UnityEngine.Random.Range(0, ingredientPool.Count-1);
+        icon.sprite = ingredientPool[selection].icon;
+
         if (_ingredient != null)
             _ingredient(ingredientPool[selection]);
 

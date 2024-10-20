@@ -18,6 +18,8 @@ public class MergeItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
     public static Action<int,int> _merge;
     public static Action _mergeSFX;
 
+    public static Action _refreshInvetory;
+
     private void OnEnable()
     {
         InputMonitor._mousePosition += GetMousePosition;
@@ -102,6 +104,10 @@ public class MergeItem : MonoBehaviour, IBeginDragHandler, IDragHandler, IEndDra
         if(i == index)
         {
             this.transform.position = startPOS;
+            if(_refreshInvetory != null)
+            {
+                _refreshInvetory();
+            }
         }
     }
 

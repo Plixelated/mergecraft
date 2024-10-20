@@ -23,19 +23,16 @@ public class SoundManager : MonoBehaviour
 
     public void PlayForaging()
     {
-        Debug.Log("Foraging");
         sfx[0].Play();
     }
 
     public void PlayMerge()
     {
-        Debug.Log("Merge");
         sfx[1].Play();
     }
 
     public void PlaySell()
     {
-        Debug.Log("Sell");
         sfx[2].Play();
     }
 

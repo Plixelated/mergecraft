@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 243305e7e9e7fe14a8e7c62e2e11f574, type: 3}
   m_Name: Potion_of_Expression
   m_EditorClassIdentifier: 
-  potionName: Potion of expression
+  potionName: Potion of Expression
   description: Don't drag the cow to the attic
   value: 500
   icon: {fileID: 21300000, guid: 398e69f88672e8f419c34bb69d738cee, type: 3}

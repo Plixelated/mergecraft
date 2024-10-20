@@ -31,6 +31,7 @@ public class PlayerInventory : MonoBehaviour
         MergeItem._merge += MergeItems;
         ForagingManager._ingredient += AddToInventory;
         SellPotion._itemIndex += GetItemIndex;
+        MergeItem._refreshInvetory += UpdateInventory;
     }
     private void OnDisable()
     {
@@ -40,6 +41,7 @@ public class PlayerInventory : MonoBehaviour
         MergeItem._merge -= MergeItems;
         ForagingManager._ingredient -= AddToInventory;
         SellPotion._itemIndex -= GetItemIndex;
+        MergeItem._refreshInvetory -= UpdateInventory;
     }
 
     private void GetItemIndex(int index)
@@ -123,8 +125,6 @@ public class PlayerInventory : MonoBehaviour
 
             itemDisplay.GetChild(mergeIndex).gameObject.SetActive(false);
             itemDisplay.GetChild(mergeIndex).SetAsLastSibling();
-
-            UpdateInventory();
         }
         else
         {
@@ -133,6 +133,8 @@ public class PlayerInventory : MonoBehaviour
                 _invalidMerge(mergeIndex);
             }
         }
+
+        UpdateInventory();
 
     }
     private MergeTable GetMergeTable(ScriptableObject obj)
@@ -254,13 +256,24 @@ public class PlayerInventory : MonoBehaviour
         {
             itemDisplay.GetChild(0).gameObject.SetActive(false);
         }
+
+        RemoveInactiveChildren();
+    }
+    
+    private void RemoveInactiveChildren()
+    {
+        for (int i = 0; i < itemDisplay.childCount; i++)
+        {
+            GameObject child = itemDisplay.GetChild(i).gameObject;
+            if(!child.activeSelf)
+                Destroy(child);
+        }
     }
 
     private void ClearInventory()
     {
         if (gameover)
         {
-            Debug.Log("GameOver");
             if (_gameOver != null)
                 _gameOver();
         }
