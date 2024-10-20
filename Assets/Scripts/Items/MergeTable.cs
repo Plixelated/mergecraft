@@ -5,8 +5,8 @@ using UnityEngine;
 [System.Serializable]
 public class Merges
 {
-    public List<Potion> validMerge;
-    public Potion output;
+    public List<ScriptableObject> validMerge;
+    public ScriptableObject output;
 }
 [System.Serializable]
 public class MergeTable

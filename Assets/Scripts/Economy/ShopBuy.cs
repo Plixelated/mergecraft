@@ -19,6 +19,6 @@ public class ShopBuy : MonoBehaviour
         {
             _itemIndex(itemInfo.itemIndex);
         }
-        this.gameObject.SetActive(false);
+        //this.gameObject.SetActive(false);
     }
 }

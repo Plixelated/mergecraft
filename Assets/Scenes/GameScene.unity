@@ -942,7 +942,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   slider: {fileID: 1554512967}
-  foragingTimer: 3
+  foragingTimer: 60
   notificationText: {fileID: 1610925491}
   notificationDuration: 1
   notificationYOffset: 16
@@ -1423,12 +1423,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   shopInventory:
-  - {fileID: 11400000, guid: 9d5b6e875ed75ef4faafa3b45738a5d1, type: 2}
-  - {fileID: 11400000, guid: 9d5b6e875ed75ef4faafa3b45738a5d1, type: 2}
-  - {fileID: 11400000, guid: 9d5b6e875ed75ef4faafa3b45738a5d1, type: 2}
-  - {fileID: 11400000, guid: 9d5b6e875ed75ef4faafa3b45738a5d1, type: 2}
-  - {fileID: 11400000, guid: 873b5ecc988652144826f4e483efaa8e, type: 2}
-  - {fileID: 11400000, guid: 88a5bb6e21c9b104ba39d8ef11378cec, type: 2}
+  - {fileID: 11400000, guid: b40d2fdc81310b14fb5d20c6878849ab, type: 2}
+  - {fileID: 11400000, guid: f74b5b9ea58fee4488c265d77144d305, type: 2}
+  - {fileID: 11400000, guid: a16fb9bc4cd055a409d9a6bef8f9f9b8, type: 2}
   shopObject: {fileID: 4276514953521370926, guid: 5d696eda3b3b45c4a9d124b375eac780, type: 3}
   itemDisplay: {fileID: 601120802}
   inventoryCount: 0
@@ -2314,7 +2311,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!212 &850299531
 SpriteRenderer:
   m_ObjectHideFlags: 0

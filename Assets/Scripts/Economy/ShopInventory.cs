@@ -39,6 +39,13 @@ public class ShopInventory : MonoBehaviour
                 Potion newPotion = (Potion)shopInventory[i];
                 newItem.GetComponent<ItemDisplay>().DisplayInfo(i,newPotion.potionName, newPotion.description, newPotion.value.ToString(), newPotion.icon);
             }
+            else if (shopInventory[i] is Ingredient)
+            {
+                inventoryCount += 1;
+                GameObject newItem = (GameObject)Instantiate(shopObject, itemDisplay);
+                Ingredient newIngredient = (Ingredient)shopInventory[i];
+                newItem.GetComponent<ItemDisplay>().DisplayInfo(i, newIngredient.ingredientName, newIngredient.description, newIngredient.value.ToString(), newIngredient.icon);
+            }
         }
     }
 
@@ -50,7 +57,7 @@ public class ShopInventory : MonoBehaviour
             Destroy(child);
         }
 
-        UpdateInventory();
+        //UpdateInventory();
         purchasedItems.Clear();
     }
 
@@ -71,23 +78,27 @@ public class ShopInventory : MonoBehaviour
 
     private void GetItemIndex(int index)
     {
-        Potion item = null;
+        
         if (shopInventory[index] is Potion)
         {
-            item = (Potion)shopInventory[index];
+            var item = (Potion)shopInventory[index];
+            if (_buyItem != null)
+                _buyItem(item.value);
         }
-        Debug.Log(item.value);
-        //Add SO for Ingredient here in else statement
+        else if (shopInventory[index] is Ingredient)
+        {
+            var item = (Ingredient)shopInventory[index];
+            if (_buyItem != null)
+                _buyItem(item.value);
+        }
 
-        if(_buyItem != null)
-            _buyItem(item.value);
 
         purchasedItems.Add(index);
 
         if(_purchasedItem != null)
             _purchasedItem(shopInventory[index]);
 
-        inventoryCount -= 1;
+        //inventoryCount -= 1;
     }
 
 
