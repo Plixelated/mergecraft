@@ -6,6 +6,7 @@ using UnityEngine;
 public class SellPotion : MonoBehaviour
 {
     public static Action<int> _itemIndex;
+    public static Action _sellSFX;
 
     private ItemDisplay itemInfo;
     private void Start()
@@ -16,6 +17,9 @@ public class SellPotion : MonoBehaviour
     {
         if (_itemIndex != null)
         {
+            if(_sellSFX != null)
+                _sellSFX();
+
             _itemIndex(itemInfo.itemIndex);
         }
     }
